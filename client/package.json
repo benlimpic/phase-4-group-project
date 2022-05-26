@@ -2,11 +2,12 @@
   "name": "react-rails-api-project-template-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3000/",
   "engines": {
     "node": "16.x"
   },
   "dependencies": {
+    "@syncfusion/ej2-react-kanban": "^20.1.55",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

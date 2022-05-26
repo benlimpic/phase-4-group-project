@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import KanBan from './components/KanBan';
+import { registerLicense } from '@syncfusion/ej2-base';
+
+// Registering Syncfusion license key
+registerLicense('ORg4AjUWIQA/Gnt2VVhhQlFaclhJXGFWfVJpTGpQdk5xdV9DaVZUTWY/P1ZhSXxRdkBhX35Yc3JQQmBUWEw=');
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <KanBan/>
     </div>
   );
 }
