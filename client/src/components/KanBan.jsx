@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { KanbanComponent, ColumnsDirective, ColumnDirective } from "@syncfusion/ej2-react-kanban";
-import kanbanData from './data';
+import kanbanData from '../data';
 
 const KanBan = () => {
   
