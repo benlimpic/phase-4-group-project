@@ -9,7 +9,7 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>KanBan Pro</Logo>
+      <Logo>GET IN THERE!</Logo>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />

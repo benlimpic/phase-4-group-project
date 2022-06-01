@@ -17,15 +17,18 @@ ActiveRecord::Schema.define(version: 2022_05_26_173138) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.text "description"
+    t.string "summary"
+    t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
-    t.text "description"
-    t.integer "priority"
+    t.string "status"
+    t.string "summary"
+    t.string "priority"
+    t.string "color"
     t.integer "column"
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false

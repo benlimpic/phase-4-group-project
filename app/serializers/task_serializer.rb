@@ -1,7 +1,7 @@
 class TaskSerializer < ActiveModel::Serializer
-
-  attributes :id, :title, :description, :urgency, :column
-  has_one :user
-  has_one :project
-
+  attributes :id, :title, :status, :priority, :summary, :project_title, :project_id
+  
+  def project_title
+    object.project.title
+  end
 end

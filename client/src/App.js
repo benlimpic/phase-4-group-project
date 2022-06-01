@@ -1,9 +1,11 @@
 
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from "./pages/Login";
 import KanBan from './components/KanBan';
+import NewTask from './components/NewTask';
+import Create from './pages/Create';
 import { registerLicense } from '@syncfusion/ej2-base';
 import './App.css';
 
@@ -32,13 +34,10 @@ function App() {
     <>
     <NavBar user={user} setUser={setUser} />
     <main>
-      <Switch>
-        <Route path="/">
-          <div className="App">
-             <KanBan/>
-          </div>
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" exact element={<KanBan/>}/>
+        <Route path="/create" element={<Create/>}/>
+      </Routes>
     </main>
     </>
 

@@ -4,6 +4,6 @@ class Project < ApplicationRecord
     has_many :users, through: :tasks
     
     validates :title, presence: true
-    validates :description, length: { minimum: 10 }
+    validates :summary, length: { minimum: 10 }
 
 end
