@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
     def login
         puts "LOGGING IN..."
         user = User.find_by(username: params[:username])
-        if user.authenticate(params[:password])
+        if user&.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user, status: :ok
         else
-            render json: {error: "Not Authorized"}, status: 401
+            render json: {error: ["Invalid Username or Password"]}, status: 401
         end
     end
 
