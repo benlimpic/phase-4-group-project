@@ -4,8 +4,7 @@ import LoginForm from "../components/LoginForm";
 import CreateForm from "../components/CreateForm";
 import { Button } from "../styles";
 
-function Login({ onLogin }) {
-  const [showLogin, setShowLogin] = useState(true);
+function Create() {
 
   return (
     <Wrapper>
@@ -33,4 +32,4 @@ const Divider = styled.hr`
   margin: 16px 0;
 `;
 
-export default Login;
+export default Create;
