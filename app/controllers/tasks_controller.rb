@@ -4,6 +4,12 @@ class TasksController < ApplicationController
     render json: Task.all, includes: :project
   end
 
+  def create
+    task = Task.create(task_params)
+    render json: task, status: :created
+
+  end
+
   def update
     task = Task.find_by(id: params[:id])
     task.update(task_params)

@@ -3,12 +3,12 @@
 puts "Planting seeds..."
 
 
-# User.create!(
-#     username: "username"
-#     password_digest: BCrypt::Password.create('password'))
-#     image_url: "url"
-#     bio: "Howdy, I'm a new user!"
-# )
+User.create!(
+    username: "username",
+    password_digest: BCrypt::Password.create('password'),
+    image_url: "url",
+    bio: "Howdy, I'm a new user!"
+)
 
 # -------------------------------------
 
