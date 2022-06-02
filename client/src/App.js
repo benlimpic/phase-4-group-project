@@ -32,15 +32,15 @@ function App() {
 
   return (
 
-    <>
+    <div className="app">
     <NavBar user={user} setUser={setUser} />
     <main>
       <Routes>
         <Route path="/" exact element={<KanBan/>}/>
-        <Route path="/create" element={<Create/>}/>
+        <Route path="/create" element={<Create user={user}/>}/>
       </Routes>
     </main>
-    </>
+    </div>
 
   );
 }

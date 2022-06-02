@@ -1,26 +1,39 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Error, Input, FormField, Label, Select, Textarea } from "../styles";
+import { useNavigate } from 'react-router-dom';
 
-const CreateForm = () => {
+const CreateForm = ({ user }) => {
   
-  const [title, setTitle] = useState('hello');
-  const [status, setStatus] = useState([]);
-  const [summary, setSummary] = useState('goodbye');
-  const [priority, setPriority] = useState([]);
+  const [title, setTitle] = useState('');
+  const [status, setStatus] = useState('');
+  const [summary, setSummary] = useState('');
+  const [priority, setPriority] = useState('');
   const [errors, setErrors] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [projectNames, setProjectNames] = useState("eggs");
+  const [projectNames, setProjectNames] = useState(0);
 
+  const navigate = useNavigate();
 
 const handleSubmit = (e) => {
   e.preventDefault()
-  const task = { title, status, summary, priority };
+  const task = { 
+    title, 
+    status, 
+    summary, 
+    priority,
+    user_id: user.id,
+    project_id: projectNames
+   };
 
   fetch('/tasks', {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task)
-  }).then(() => { console.log("New task added!")})
+  }).then(r => r.json())
+  .then(data => {
+    navigate('/')
+  })
+
 
   console.log(task)
 }
@@ -28,13 +41,14 @@ const handleSubmit = (e) => {
   useEffect(() => {
     fetch('/projects')
     .then(r => r.json())
-    .then(projects => setProjects(projects)
+    .then(data => {
+      console.log(data)
+      setProjects(data)}
     )
   }, [])
 
 const projectOptions = projects.map(project => {
-  return <option key={project.id} value={project.id}>{project.name}</option>})
-
+  return <option key={project.id} value={project.id}>{project.title}</option>})
 
   return (
     <div>
@@ -45,18 +59,20 @@ const projectOptions = projects.map(project => {
           <Input type="text" required id="title" autoComplete="off" value={title} onChange={(e) => setTitle(e.target.value)} />
         </FormField>
         <FormField>
-          <Label htmlFor="status">Status</Label>
+          <Label htmlFor="status">Project:</Label>
           <Select value={projectNames} onChange={(e) => setProjectNames(e.target.value)}>
+            <option value={0}>Select Project</option>
             {projectOptions}
             </Select>
         </FormField>
         <FormField>
           <Label htmlFor="status">Status</Label>
           <Select value={status} onChange={(e) => setStatus(e.target.value)}>
-                <option value="To Do">To Do</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Testing">Testing</option>
-                <option value="Done">Done</option>
+                <option value="">Select Status</option>
+                <option value="open">To Do</option>
+                <option value="InProgress">In Progress</option>
+                <option value="testing">Testing</option>
+                <option value="close">Done</option>
             </Select>
         </FormField>
         <FormField>
@@ -66,6 +82,7 @@ const projectOptions = projects.map(project => {
         <FormField>
           <Label htmlFor="priority">Priority</Label>
           <Select value={priority} onChange={(e) => setPriority(e.target.value)}>
+                <option value="">Select Priority</option>
                 <option value="Low">Low</option>
                 <option value="Normal">Normal</option>
                 <option value="Critical">Critical</option>

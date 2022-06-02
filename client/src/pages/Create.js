@@ -4,11 +4,11 @@ import LoginForm from "../components/LoginForm";
 import CreateForm from "../components/CreateForm";
 import { Button } from "../styles";
 
-function Create() {
+function Create({ user}) {
 
   return (
     <Wrapper>
-          <CreateForm/>
+          <CreateForm user={user}/>
     </Wrapper>
   );
 }

@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.create(task_params)
+    task = Task.create!(task_params)
+    
     render json: task, status: :created
 
   end
@@ -24,6 +25,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.permit(:title, :summary, :priority, :status, :column, :project_id, :user_id)
+    params.permit(:title, :summary, :priority, :status, :project_id, :user_id)
   end
 end

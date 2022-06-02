@@ -1,7 +1,10 @@
-/* .App {
+.app {
   text-align: center;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  border-color: blue;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
