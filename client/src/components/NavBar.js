@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
-import './Navbar.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faGhost } from "@fortawesome/free-solid-svg-icons";
+
 
 
 function NavBar({ user, setUser }) {
@@ -20,7 +23,7 @@ function NavBar({ user, setUser }) {
   return (
     <div className="navbar">
     <Wrapper>
-      <Logo>
+      <Logo >
         <Link to="/" onClick={() => {
           setIsMinus(false) 
           setIsShow(false)}}>Taskify</Link>
@@ -31,13 +34,13 @@ function NavBar({ user, setUser }) {
         {!isMinus ? <Button onClick={() => {
           setIsMinus(!isMinus)
           setIsShow(false)
-          }}>-</Button> : null}
+          }}><FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon></Button> : null}
         {isMinus ? <Button as={Link} to='/delete-project' onClick={() => setIsMinus(!isMinus)}>Delete Project</Button> : null}
         {isMinus ? <Button as={Link} to='/delete-task' onClick={() => setIsMinus(!isMinus)}>Delete Task</Button> : null}
         {!isShow ? <Button onClick={() => {
           setIsShow(!isShow)
           setIsMinus(false)
-          }}>+</Button> : null}
+          }}><FontAwesomeIcon icon={faGhost}></FontAwesomeIcon></Button> : null}
         <Button variant="outline" onClick={handleLogoutClick}>
           Logout
         </Button>
