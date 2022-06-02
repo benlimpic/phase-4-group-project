@@ -47,12 +47,15 @@ const handleSubmit = (e) => {
     )
   }, [])
 
+  
 const projectOptions = projects.map(project => {
   return <option key={project.id} value={project.id}>{project.title}</option>})
 
+  console.log(!projectOptions)
+
   return (
     <div>
-      <h1>Create a new task</h1>
+      <h1>Create a New Task</h1>
       <form onSubmit={handleSubmit}>
       <FormField>
           <Label htmlFor="title">Title</Label>

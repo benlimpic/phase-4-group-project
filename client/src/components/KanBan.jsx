@@ -47,7 +47,7 @@ const KanBan = () => {
     <div className='kanban-container'>
             <KanbanComponent 
             id="kanban" keyField="status" dataSource={kanbanData} dataSourceChanged={dataSourceChanged} 
-            cardSettings={{ contentField: "summary", headerField: "title", priority: "RankId" }}swimlaneSettings={{ keyField: "project_title"}}>
+            cardSettings={{ contentField: "summary", headerField: "title", priority: "priority", grabberField: 'blue' }}swimlaneSettings={{ keyField: "project_title", showEmptyRow: true}}>
                 <ColumnsDirective>
                   <ColumnDirective headerText="To Do" keyField="open"/>
                   <ColumnDirective headerText="In Progress" keyField="InProgress"/>

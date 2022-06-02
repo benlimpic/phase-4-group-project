@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Button } from "../styles";
 import './Navbar.css'
 
+
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -13,16 +14,30 @@ function NavBar({ user, setUser }) {
     });
   }
 
+  const [isShow, setIsShow] = React.useState(false);
+  const [isMinus, setIsMinus] = React.useState(false);
+
   return (
     <div className="navbar">
     <Wrapper>
       <Logo>
-        <Link to="/">Taskify</Link>
+        <Link to="/" onClick={() => {
+          setIsMinus(false) 
+          setIsShow(false)}}>Taskify</Link>
       </Logo>
       <Nav>
-        <Button as={Link} to="/create">
-          +
-        </Button>
+        {isShow ? <Button onClick={() => setIsShow(!isShow)} as={Link} to='/create-project' >New Project</Button> : null}
+        {isShow ? <Button as={Link} to='/create' onClick={() => setIsShow(!isShow)} >New Task</Button> : null}
+        {!isMinus ? <Button onClick={() => {
+          setIsMinus(!isMinus)
+          setIsShow(false)
+          }}>-</Button> : null}
+        {isMinus ? <Button as={Link} to='/delete-project' onClick={() => setIsMinus(!isMinus)}>Delete Project</Button> : null}
+        {isMinus ? <Button as={Link} to='/delete-task' onClick={() => setIsMinus(!isMinus)}>Delete Task</Button> : null}
+        {!isShow ? <Button onClick={() => {
+          setIsShow(!isShow)
+          setIsMinus(false)
+          }}>+</Button> : null}
         <Button variant="outline" onClick={handleLogoutClick}>
           Logout
         </Button>

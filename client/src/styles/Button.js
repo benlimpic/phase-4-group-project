@@ -37,7 +37,7 @@ const FillButton = styled(ButtonBase)`
   color: var(--accent);
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 `;
 
