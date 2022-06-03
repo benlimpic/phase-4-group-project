@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
-    "@syncfusion/ej2-data": "^20.1.55"
+    "@syncfusion/ej2-data": "^20.1.55",
+    "babel-plugin-macros": "^3.1.0"
   }
 }

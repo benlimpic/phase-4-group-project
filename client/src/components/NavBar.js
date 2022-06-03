@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
-import './Navbar.css'
+import '../App.css';
+import { FaGhost, FaPlus } from "react-icons/fa";
+
+
 
 
 function NavBar({ user, setUser }) {
@@ -20,7 +23,7 @@ function NavBar({ user, setUser }) {
   return (
     <div className="navbar">
     <Wrapper>
-      <Logo>
+      <Logo >
         <Link to="/" onClick={() => {
           setIsMinus(false) 
           setIsShow(false)}}>Taskify</Link>
@@ -31,14 +34,18 @@ function NavBar({ user, setUser }) {
         {!isMinus ? <Button onClick={() => {
           setIsMinus(!isMinus)
           setIsShow(false)
-          }}>-</Button> : null}
+          }}>
+            <FaGhost icon="flipper" size="1.5em" className="flipper" color="goldenrod"/>
+            </Button> : null}
         {isMinus ? <Button as={Link} to='/delete-project' onClick={() => setIsMinus(!isMinus)}>Delete Project</Button> : null}
         {isMinus ? <Button as={Link} to='/delete-task' onClick={() => setIsMinus(!isMinus)}>Delete Task</Button> : null}
         {!isShow ? <Button onClick={() => {
           setIsShow(!isShow)
           setIsMinus(false)
-          }}>+</Button> : null}
-        <Button variant="outline" onClick={handleLogoutClick}>
+          }}>
+            <FaPlus icon="flipper" size="1.5em" className="flipper" color="goldenrod"/>
+            </Button> : null}
+        <Button variant="fill" onClick={handleLogoutClick}>
           Logout
         </Button>
       </Nav>
@@ -46,6 +53,9 @@ function NavBar({ user, setUser }) {
     </div>
   );
 }
+
+
+
 
 const Wrapper = styled.header`
   display: flex;
@@ -55,7 +65,7 @@ const Wrapper = styled.header`
 `;
 
 const Logo = styled.h1`
-  font-family: "Roboto", cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 3rem;
   color: goldenrod;
   margin: 0;
