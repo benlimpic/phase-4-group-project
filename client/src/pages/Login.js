@@ -9,9 +9,10 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>GET IN THERE!</Logo>
+      <Logo>Taskify</Logo>
       {showLogin ? (
         <>
+          <h1>Welcome Back!</h1>
           <LoginForm onLogin={onLogin} />
           <Divider />
           <p>
@@ -23,6 +24,7 @@ function Login({ onLogin }) {
         </>
       ) : (
         <>
+        <h1>Pleasure To Meet You!</h1>
           <SignUpForm onLogin={onLogin} />
           <Divider />
           <p>
@@ -38,8 +40,8 @@ function Login({ onLogin }) {
 }
 
 const Logo = styled.h1`
-  font-family: "Roboto", cursive;
-  font-size: 3rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 3.5rem;
   color: goldenrod;
   margin: 8px 0 16px;
 `;

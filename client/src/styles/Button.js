@@ -3,7 +3,7 @@ import styled from "styled-components";
 const COLORS = {
   primary: {
     "--main": "black",
-    "--accent": "white",
+    "--accent": "goldenrod",
   },
   secondary: {
     "--main": "goldenrod",

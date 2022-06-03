@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { faGhost } from "@fortawesome/free-solid-svg-icons";
+import '../App.css';
+import { FaGhost, FaPlus } from "react-icons/fa";
+
 
 
 
@@ -34,14 +34,18 @@ function NavBar({ user, setUser }) {
         {!isMinus ? <Button onClick={() => {
           setIsMinus(!isMinus)
           setIsShow(false)
-          }}><FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon></Button> : null}
+          }}>
+            <FaGhost icon="flipper" size="1.5em" className="flipper" color="goldenrod"/>
+            </Button> : null}
         {isMinus ? <Button as={Link} to='/delete-project' onClick={() => setIsMinus(!isMinus)}>Delete Project</Button> : null}
         {isMinus ? <Button as={Link} to='/delete-task' onClick={() => setIsMinus(!isMinus)}>Delete Task</Button> : null}
         {!isShow ? <Button onClick={() => {
           setIsShow(!isShow)
           setIsMinus(false)
-          }}><FontAwesomeIcon icon={faGhost}></FontAwesomeIcon></Button> : null}
-        <Button variant="outline" onClick={handleLogoutClick}>
+          }}>
+            <FaPlus icon="flipper" size="1.5em" className="flipper" color="goldenrod"/>
+            </Button> : null}
+        <Button variant="fill" onClick={handleLogoutClick}>
           Logout
         </Button>
       </Nav>
@@ -49,6 +53,9 @@ function NavBar({ user, setUser }) {
     </div>
   );
 }
+
+
+
 
 const Wrapper = styled.header`
   display: flex;
@@ -58,7 +65,7 @@ const Wrapper = styled.header`
 `;
 
 const Logo = styled.h1`
-  font-family: "Roboto", cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 3rem;
   color: goldenrod;
   margin: 0;
