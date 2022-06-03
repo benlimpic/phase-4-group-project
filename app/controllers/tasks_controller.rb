@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    render json: Task.all, includes: :project
+    render json: Task.where(user_id: session[:user_id]), includes: :project
   end
 
   def create

@@ -33,7 +33,7 @@ const handleSubmit = (e) => {
     else {
       r.json().then(err => {
         console.log(err)
-        //setErrors(err.errors)
+        setErrors(err.errors)
       }
   )}
   })
@@ -53,16 +53,6 @@ const handleSubmit = (e) => {
       <FormField>
           <Label htmlFor="title">Title</Label>
           <Input type="text" required id="title" autoComplete="off" value={title} onChange={(e) => setTitle(e.target.value)} />
-        </FormField>
-        <FormField>
-          <Label htmlFor="Project Label">Color</Label>
-          <Select value={color} onChange={(e) => setColor(e.target.value)}>
-                <option value="">Pick a Color</option>
-                <option value="#99CC33">Green</option>
-                <option value="#FF9999">Pink</option>
-                <option value="#FFDF5E">Yellow</option>
-                <option value="#BDAC96">Brown</option>
-            </Select>
         </FormField>
          <FormField>
           <Label htmlFor="summary">Summary</Label>

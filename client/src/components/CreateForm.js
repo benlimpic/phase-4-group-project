@@ -92,15 +92,6 @@ const projectOptions = projects.map(project => {
           <Textarea rows="3" type="text"  id="title" autoComplete="off" value={summary} onChange={(e) => setSummary(e.target.value)} />
         </FormField>
         <FormField>
-          <Label htmlFor="priority">Priority</Label>
-          <Select value={priority} onChange={(e) => setPriority(e.target.value)}>
-                <option value="">Select Priority</option>
-                <option value="Low">Low</option>
-                <option value="Normal">Normal</option>
-                <option value="Critical">Critical</option>
-            </Select>
-        </FormField>
-        <FormField>
           <Button variant="fill" color="primary" type="submit">
             Create
           </Button>

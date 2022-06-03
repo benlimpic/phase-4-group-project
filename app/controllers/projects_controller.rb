@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
     def index
-        render json: Project.all
+        render json: Project.where(user_id: session[:user_id])
       end
     
       def create
@@ -24,6 +24,6 @@ class ProjectsController < ApplicationController
       private
     
       def project_params
-        params.permit(:title, :summary, :color)
+        params.permit(:title, :summary, :color, :user_id)
       end
 end

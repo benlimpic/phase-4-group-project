@@ -5,5 +5,4 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
   validates :summary, length: { minimum: 10 }
-  validates :priority, presence: true
 end
