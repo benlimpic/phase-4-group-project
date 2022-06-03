@@ -29,9 +29,18 @@ const handleSubmit = (e) => {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(task)
-  }).then(r => r.json())
-  .then(data => {
-    navigate('/')
+  }).then(r => {
+    if (r.ok) {
+      r.json().then(data => {
+        navigate('/')
+      })
+    }
+    else {
+      r.json().then(err => {
+        console.log(err)
+        setErrors(err.errors)
+      }
+  )}
   })
 
 

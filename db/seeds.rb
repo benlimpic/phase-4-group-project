@@ -15,17 +15,20 @@ User.create!(
 Project.create!(
     title: "Pirate Voyage",
     summary: "Prepare for our voyage!",
-    color: "#303AD0"
+    color: "#303AD0",
+    user_id: 1
 )
 Project.create!(
     title: "Rocket Man",
     summary: "Ready for Launch?",
-    color: "#50D01B"
+    color: "#50D01B",
+    user_id: 1
 )
 Project.create!(
     title: "Can You Farm?",
     summary: "A girl's gotta eat!",
-    color: "#F6D514"
+    color: "#F6D514",
+    user_id: 1
 )
 
 # -------------------------------------

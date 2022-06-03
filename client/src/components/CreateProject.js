@@ -20,16 +20,32 @@ const handleSubmit = (e) => {
     user_id: user.id
    };
 
-  fetch('/projects', {
+   fetch('/projects', {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(project)
-  }).then(r => r.json())
-  .then(data => {
-    console.log(data)
-    navigate('/')
+  }).then(r => {
+    if (r.ok) {
+      r.json().then(data => {
+        navigate('/')
+      })
+    }
+    else {
+      r.json().then(err => {
+        console.log(err)
+        //setErrors(err.errors)
+      }
+  )}
   })
 }
+
+
+
+
+
+
+
+
   return (
     <div>
       <h1>Create a New Project</h1>

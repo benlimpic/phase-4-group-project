@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const DeleteProject = () => {
   const [taskNames, setTaskNames] = useState([]);
   const [title, setTitle] = useState('');
+  const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   
   const projectOptions = taskNames.map(task => {
@@ -33,6 +34,9 @@ const DeleteProject = () => {
       console.log(data)
       navigate('/')
     })
+    .catch(err => {
+      console.log(err)
+      setErrors(err)})
   }
   
   return (
@@ -51,9 +55,9 @@ const DeleteProject = () => {
         </Button>
       </FormField>
       <FormField>
-        {/* {errors.map((err) => (
+        {errors.map((err) => (
           <Error key={err}>{err}</Error>
-        ))} */}
+        ))}
       </FormField>
     </div>
   )

@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     
       def create
         project = Project.create!(project_params)
-        render json: task, status: :created
+        render json: project, status: :created
     
       end
     
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
       def destroy
         project = Project.find_by(id: params[:id])
         project.destroy
-        head :no_content
+        render json: {}
       end
       private
     
