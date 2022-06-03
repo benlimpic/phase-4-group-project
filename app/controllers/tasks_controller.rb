@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   def destroy
     task = Task.find_by(id: params[:id])
     task.destroy
-    head :no_content
+    render json: {}
   end
   private
 

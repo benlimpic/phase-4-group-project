@@ -12,7 +12,7 @@ const KanBan = () => {
     .then(data => {
       console.log(data)
       setKanbanData(data)})
-  }, [])
+  }, [kanbanData])
 
   const dataSourceChanged = (state: any) => {
     console.log(state)

@@ -2,7 +2,7 @@
 
 }
 
-/* .spinner:hover {
+ .spinner:hover {
   animation: spin infinite 3s linear;
 }
 
@@ -13,11 +13,10 @@ from {
 to {
   transform: rotate(360deg);
 }
-} */
-
+}
 
 .flipper:hover {
-  animation: flip infinite 3s linear;
+  animation: flip infinite 2s linear;
 }
 
 @keyframes flip {

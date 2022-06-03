@@ -35,7 +35,8 @@ function NavBar({ user, setUser }) {
           setIsMinus(!isMinus)
           setIsShow(false)
           }}>
-            <FaGhost icon="flipper" size="1.5em" className="flipper" color="goldenrod"/>
+            <FaGhost icon="flipper" size="1em" className="flipper" color="goldenrod"/>
+            
             </Button> : null}
         {isMinus ? <Button as={Link} to='/delete-project' onClick={() => setIsMinus(!isMinus)}>Delete Project</Button> : null}
         {isMinus ? <Button as={Link} to='/delete-task' onClick={() => setIsMinus(!isMinus)}>Delete Task</Button> : null}
@@ -43,7 +44,8 @@ function NavBar({ user, setUser }) {
           setIsShow(!isShow)
           setIsMinus(false)
           }}>
-            <FaPlus icon="flipper" size="1.5em" className="flipper" color="goldenrod"/>
+            <FaPlus icon="flipper" size="1em" className="spinner" color="goldenrod"/>
+            
             </Button> : null}
         <Button variant="fill" onClick={handleLogoutClick}>
           Logout
